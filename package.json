@@ -1,0 +1,58 @@
+{
+  "name": "@vishruthsk/aat-js",
+  "version": "0.1.3-rc",
+  "description": "Application Authentication Token Javascript SDK",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "generateDocs": "typedoc",
+    "browserify": "browserify browserify.js -p [ minifyify --no-map ] --standalone Viper > dist/web.js",
+    "test": "mocha --require ts-node/register tests/**/*.ts",
+    "build": "rm -rf dist && mkdir dist && cti create ./src && npm run lint && tsc && npm run generateDocs",
+    "prepare": "npm run build",
+    "lint": "eslint -c .eslintrc.js --ext .ts ./src",
+    "update": "rm -rf dist && rm -rf node_modules && rm -rf package-lock.json && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishruthsk/viper-aat-js.git"
+  },
+  "keywords": [],
+  "author": "Wilson Garcia, Pabel Nunez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vishruthsk/viper-aat-js/issues"
+  },
+  "homepage": "https://github.com/vishruthsk/viper-aat-js#readme",
+  "files": [
+    "dist/**/*"
+  ],
+  "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^13.9.6",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "acorn": "^8.4.1",
+    "chai": "^4.3.4",
+    "create-ts-index": "^1.13.6",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsdoc": "^35.3.0",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-react": "^7.24.0",
+    "mocha": "^9.0.1",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.0.0",
+    "typedoc": "^0.20.36",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "@types/libsodium-wrappers": "^0.7.7",
+    "browserify": "^17.0.0",
+    "js-sha3": "^0.8.0",
+    "libsodium-wrappers": "^0.7.6",
+    "minifyify": "^7.3.5"
+  }
+}
